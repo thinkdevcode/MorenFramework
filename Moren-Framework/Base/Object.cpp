@@ -1,0 +1,68 @@
+////////////////////////////////////////////////////////////
+//
+// Moren - 2D RPG Framework
+// Copyright (C) 2009 Eugene Alfonso (gin@gtproductions.org)
+//
+// This software is provided 'as-is', without any express or implied warranty.
+// In no event will the authors be held liable for any damages arising from the use of this software.
+//
+////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////
+// Headers
+////////////////////////////////////////////////////////////
+#include "Object.hpp"
+
+namespace mn
+{
+
+////////////////////////////////////////////////////////////
+// Initialize static members of Moren::Object
+////////////////////////////////////////////////////////////
+Uint32		Object::StaticId = 0;
+ObjectMap	Object::LiveObjects;
+ObjectMap	Object::DeadObjects;
+
+////////////////////////////////////////////////////////////
+// Default constructor
+////////////////////////////////////////////////////////////
+Object::Object()
+: myRefCount(1)
+{
+	myUniqueId = StaticId;
+	StaticId++;
+	LiveObjects[myUniqueId] = this;
+}
+
+////////////////////////////////////////////////////////////
+// Get the Unique Id of the Object
+////////////////////////////////////////////////////////////
+const Uint32 Object::GetId() const
+{
+	return myUniqueId;
+}
+
+////////////////////////////////////////////////////////////
+// [static] Delete all dead objects in memory
+////////////////////////////////////////////////////////////
+void Object::CollectGarbage()
+{
+	static ObjectMap::iterator ObjectIter;
+	for (ObjectIter = DeadObjects.begin(); ObjectIter != DeadObjects.end(); ++ObjectIter)
+		delete ObjectIter->second;
+	DeadObjects.clear();
+}
+
+////////////////////////////////////////////////////////////
+// [static] Delete all objects in memory
+////////////////////////////////////////////////////////////
+void Object::CollectAllObjects()
+{
+	CollectGarbage();
+	ObjectMap::iterator ObjectIter;
+	for (ObjectIter = LiveObjects.begin(); ObjectIter != LiveObjects.end(); ++ObjectIter)
+		delete ObjectIter->second;
+	LiveObjects.clear();
+}
+
+} // namespace Moren

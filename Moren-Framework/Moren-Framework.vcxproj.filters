@@ -1,0 +1,65 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Kernel">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Kernel\Structs">
+      <UniqueIdentifier>{44bef22f-2aa9-4768-aae8-d32fd9da3e25}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Managers">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Managers\Image">
+      <UniqueIdentifier>{b5df03cf-2adf-4524-8ffb-97a20f71df5c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Managers\State">
+      <UniqueIdentifier>{e9af31d0-9767-4906-8ea0-6f25dd66d94c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base Classes">
+      <UniqueIdentifier>{d938e116-f31f-4764-8829-ad47984acf2e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base Classes\Game State">
+      <UniqueIdentifier>{5e0693b5-2b73-497e-8867-a210dcdd9ef9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Base Classes\Object">
+      <UniqueIdentifier>{8ff731ae-8885-45ea-80fc-fe3f8adc903b}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include=".\Kernel.hpp">
+      <Filter>Kernel</Filter>
+    </ClInclude>
+    <ClInclude Include=".\WinMainData.hpp">
+      <Filter>Kernel\Structs</Filter>
+    </ClInclude>
+    <ClInclude Include=".\Managers\ImageManager.hpp">
+      <Filter>Managers\Image</Filter>
+    </ClInclude>
+    <ClInclude Include=".\Managers\StateManager.hpp">
+      <Filter>Managers\State</Filter>
+    </ClInclude>
+    <ClInclude Include=".\Base\GameState.hpp">
+      <Filter>Base Classes\Game State</Filter>
+    </ClInclude>
+    <ClInclude Include=".\Base\Object.hpp">
+      <Filter>Base Classes\Object</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include=".\Managers\ImageManager.cpp">
+      <Filter>Managers\Image</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Managers\StateManager.cpp">
+      <Filter>Managers\State</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Base\GameState.cpp">
+      <Filter>Base Classes\Game State</Filter>
+    </ClCompile>
+    <ClCompile Include=".\Base\Object.cpp">
+      <Filter>Base Classes\Object</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
